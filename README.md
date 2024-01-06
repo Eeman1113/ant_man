@@ -2,6 +2,10 @@
 
 ## Introduction
 
+
+https://github.com/Eeman1113/ant_man/assets/54275491/4f82842e-cdcd-4974-9ba3-0a8a8a4d46e9
+
+
 NAnts is a simulation of ant behavior using pygame in Python. The simulation includes features such as ant movement, pheromone trails, food seeking, and nest navigation. This readme provides an overview of the code structure, key components, and logic.
 
 ## Getting Started
