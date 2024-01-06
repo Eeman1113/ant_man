@@ -308,5 +308,5 @@ def main():
             fpsChecker=0
 
 if __name__ == '__main__':
-    main()  # by Nik
+    main()  
     pg.quit()
