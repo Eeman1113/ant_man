@@ -199,18 +199,16 @@ class PheroGrid():
         return self.image
 
 class Food(pg.sprite.Sprite):
-    def __init__(self, pos, color):
+    def __init__(self, pos):
         super().__init__()
         self.pos = pos
         self.image = pg.Surface((16, 16))
         self.image.fill(0)
         self.image.set_colorkey(0)
-        pg.draw.circle(self.image, color, [8, 8], 4)
+        pg.draw.circle(self.image, [20,150,2], [8, 8], 4)
         self.rect = self.image.get_rect(center=pos)
-
     def pickup(self):
         self.kill()
-
 
 class Vec2():
 	def __init__(self, x=0, y=0):
@@ -254,24 +252,21 @@ def main():
                 return
             elif e.type == pg.MOUSEBUTTONDOWN:
                 mousepos = pg.mouse.get_pos()
-                if e.button == 1:  # Left click
-                    foodBits = randint(5, 20)  # Random number of food bits
-                    for i in range(foodBits):
-                        # Generate random food color
-                        food_color = (randint(0, 255), randint(0, 255), randint(0, 255))
-                        # Spawn food bits evenly within a circle
-                        dist = pow(i / (foodBits - 1.0), 0.5) * 50
+                if e.button == 1: # and pg.Vector2(mousepos).distance_to(nest) > 242:
+                    foodBits = 200
+                    fRadius = 10
+                    for i in range(0, foodBits): # spawn food bits evenly within a circle
+                        dist = pow(i / (foodBits - 1.0), 0.5) * fRadius
                         angle = 2 * pi * 0.618033 * i
                         fx = mousepos[0] + dist * cos(angle)
                         fy = mousepos[1] + dist * sin(angle)
-                        foods.add(Food((fx, fy), food_color))
+                        foods.add(Food((fx,fy)))
                     foodList.extend(foods.sprites())
-
-                # if e.button == 3:
-                #     for fbit in foodList:
-                #         if pg.Vector2(mousepos).distance_to(fbit.rect.center) < fRadius+5:
-                #             fbit.pickup()
-                #     foodList = foods.sprites()
+                if e.button == 3:
+                    for fbit in foodList:
+                        if pg.Vector2(mousepos).distance_to(fbit.rect.center) < fRadius+5:
+                            fbit.pickup()
+                    foodList = foods.sprites()
 
         dt = clock.tick(FPS) / 100
 
