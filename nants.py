@@ -3,10 +3,8 @@ from math import pi, sin, cos, atan2, radians, degrees
 from random import randint
 import pygame as pg
 import numpy as np
-'''
-NAnts - Ant pheromone trail simulation. Surfarray version. WIP
-Copyright (c) 2021  Nikolaus Stromberg  nikorasu85@gmail.com
-'''
+
+
 FLLSCRN = True        # True for Fullscreen, or False for Window
 ANTS = 200             # Number of Ants to spawn
 WIDTH = 1200            # default 1200
@@ -298,5 +296,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()  # by Nik
+    main()  
     pg.quit()
