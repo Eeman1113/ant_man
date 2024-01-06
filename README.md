@@ -85,7 +85,7 @@ python nants.py
 
 ## Acknowledgments
 
-- The code is developed by Nikolaus Stromberg (nikorasu85@gmail.com).
+
 - Icons and images used in the simulation may be missing or are optional (nants.png, background.png).
 
 ## License
